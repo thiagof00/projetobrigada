@@ -1,37 +1,42 @@
 import styled from "styled-components/native"
 
 export const Container = styled.View`
-    width: 30%; 
-    height: 65%;
+    
+    height: 40%;
+    width: 70%;
+    
+
     align-items: center;
-    margin-top: 8rem;
+    justify-content: center;
+    flex-direction: column;
     background-color:#FFE5EC;
 
-    border-radius: 4rem;
-
-    align-items: center;
-    justify-items: center;
-
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-`
+    border-radius: 32px;
+    `
 export const Body = styled.View`
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color:#FFF;
+
+
 `
 export const InputLogin = styled.TextInput`
-
-    width: 15rem;
-    height: 3rem;
     background-color: #FFC2D1;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
+    width: 200px;
+    height: 32px;
+    border-radius: 12px;
+    padding: 8px;
+    margin-bottom: 24px;
 
-    margin-bottom: 2rem;
 
+`
+export const BottomText = styled.Text`
 
-
+    position: absolute;
+    bottom: 20%;
 `

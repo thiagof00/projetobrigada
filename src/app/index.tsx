@@ -1,28 +1,22 @@
-import { Button, StyleSheet, Text, View } from 'react-native'
-import { Body, Container, InputLogin } from "./global"
-export default function Index(){
-    return(
-        <Body>
-            <Container>
+import { Link, useRouter } from 'expo-router';
+import { Button } from 'react-native';
+import { Body, BottomText, Container, InputLogin } from "./global";
+    export default function Index(){
+        
+        const router = useRouter();
 
-                <InputLogin placeholder='CPF'placeholderTextColor="#767676"/>
-                <InputLogin placeholder='Senha'placeholderTextColor="#767676"/>
-                <Button title='Login'/>
+        return(
+            <Body>
+                <Container>
 
-            <View>    
-                <Text>Uma colaboração IFFar e brigada militar 👮‍♀️</Text>
-            </View>
-            </Container>
+                    <InputLogin placeholder='CPF'placeholderTextColor="#767676"/>
+                    <InputLogin placeholder='Senha'placeholderTextColor="#767676"/>
+                    <Link href="/home">
+                    <Button title='Login' color={"#767676"} onPress={()=>router.push("/home")}/>
+                    </Link>                
+                </Container>
+                <BottomText>Uma colaboração IFFar e brigada militar 👮‍♀️</BottomText>
 
-        </Body>
-    )
-}
-const styles = StyleSheet.create({
-
-    
-
-    body:{alignItems: "center"},
-
-
-})
-
+            </Body>
+        )
+    }
