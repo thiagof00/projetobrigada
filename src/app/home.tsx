@@ -2,12 +2,11 @@ import { router } from "expo-router";
 import React from "react";
 import {
   StyleSheet,
-  Text,
-  TouchableHighlight
+  Text
 } from "react-native";
 import ViewAnimatedButton from "./components/ViewAnimatedButton";
 import { Body } from "./global";
-import { ButtonSoS, Container, FooterHome, TextButtonSoS } from "./styles/home";
+import { ButtonSoS, Container, FooterHome, SidesButtons, TextButtonSoS } from "./styles/home";
 
 export default function Home () {
   
@@ -25,12 +24,12 @@ export default function Home () {
       </Container>
 
       <FooterHome>
-      <TouchableHighlight>
-        <Text style={{backgroundColor:"#FF8FAB", width: 120, height:48,color:"#FFF", textAlign:"center", alignItems:"center", marginRight: 24}}>Fazer Ligação</Text>
-      </TouchableHighlight>
-      <TouchableHighlight>
-        <Text style={{backgroundColor:"#FF8FAB", width: 120, height:48,color:"#FFF", textAlign:"center", alignItems:"center", }}>Localização</Text>
-      </TouchableHighlight>
+      <SidesButtons>
+        <Text>Fazer Ligação</Text>
+      </SidesButtons>
+      <SidesButtons>
+        <Text>Localização</Text>
+      </SidesButtons>
       </FooterHome>
     </Body>
   );

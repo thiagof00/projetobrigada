@@ -35,3 +35,12 @@ export const FooterHome = styled.View`
     flex-direction: row;
 
 `
+export const SidesButtons = styled.TouchableHighlight`
+background-color:#FF8FAB;
+width: 120px;
+height:48px;
+color:#FFF;
+text-align:center;
+align-items:center;
+
+` 
