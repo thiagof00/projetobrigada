@@ -31,16 +31,28 @@ export const FooterHome = styled.View`
     height: 30%;
 
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: row;
 
 `
-export const SidesButtons = styled.TouchableHighlight`
+export const RightSideButtons = styled.TouchableHighlight`
 background-color:#FF8FAB;
 width: 120px;
 height:48px;
-color:#FFF;
 text-align:center;
 align-items:center;
+padding: 14px;
+border-radius: 24px 0 0 24px;
 
 ` 
+export const LeftSideButtons = styled.TouchableHighlight`
+background-color:#FF8FAB;
+width: 120px;
+height:48px;
+text-align:center;
+align-items:center;
+padding: 14px;
+border-radius: 0 24px 24px 0;
+
+` 
+
