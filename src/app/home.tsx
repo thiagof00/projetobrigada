@@ -1,9 +1,12 @@
+import LogoutImage from "@/assets/logout.svg";
+import { router } from "expo-router";
 import React, { useRef, useState } from "react";
 import {
   Modal,
   Pressable,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View
 } from "react-native";
 import ViewAnimatedButton from "./components/ViewAnimatedButton";
@@ -14,19 +17,19 @@ export default function Home () {
   
     const [confirmVisible, setConfirmVisible] = useState(false);
     const [successVisible, setSuccessVisible] = useState(false);
-    const [contador, setContador] = useState(30)
+    const [contador, setContador] = useState(15)
     
     const timerRef = useRef<number | null>(null);
     const intervalRef= useRef<number | null>(null)
     
    const openConfirmModal = () => {
     setConfirmVisible(true);
-    setContador(30);
+    setContador(15);
 
     // Timeout final: aciona SOS após 30s
     timerRef.current = setTimeout(() => {
       handleConfirmSOS(true);
-    }, 30000) as unknown as number;
+    }, 15000) as unknown as number;
 
     // Intervalo para contagem regressiva
     intervalRef.current = setInterval(() => {
@@ -72,6 +75,13 @@ export default function Home () {
       
       <Container>
 
+      <View style={{width:"100%",position:"absolute",top:0, height:64,padding: 12, flexDirection:"row-reverse"}}>
+      <TouchableOpacity onPress={()=> router.push("/")}>
+        <LogoutImage width={40} height={40}/>
+      </TouchableOpacity>
+      </View>
+
+
       <ViewAnimatedButton colorBackground="#FFB3C6" outputRange={[1,1.4]}/>
       <ViewAnimatedButton colorBackground="#FF8FAB" outputRange={[1,2]}/>
       <ButtonSoS onPress={openConfirmModal}>
@@ -99,7 +109,7 @@ export default function Home () {
             <View style={styles.row}>
               <Pressable
                 style={[styles.btn, styles.cancelBtn]}
-                onPress={() => setConfirmVisible(false)}
+                onPress={handleCancel}
               >
                 <Text style={styles.btnText}>Cancelar</Text>
               </Pressable>
@@ -129,12 +139,12 @@ export default function Home () {
           </View>
         </View>
       </Modal>
-     
+
       </Container>
 
       <FooterHome>
       <LeftSideButtons>
-        <Text style={{color:"#FFE5EC"}}>Fazer Ligação</Text>
+        <Text style={{color:"#FFE5EC"}} onPress={()=> router.push("/")}>Fazer Ligação (voltar)</Text>
       </LeftSideButtons>
       <RightSideButtons>
         <Text style={{color:"#FFE5EC"}}>Localização</Text>
