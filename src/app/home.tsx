@@ -2,6 +2,7 @@ import LogoutImage from "@/assets/logout.svg";
 import { router } from "expo-router";
 import React, { useRef, useState } from "react";
 import {
+  Linking,
   Modal,
   Pressable,
   StyleSheet,
@@ -67,6 +68,10 @@ export default function Home () {
     clearAllTimers();
     setConfirmVisible(false);
   };
+
+  const handleCall = () =>{
+    Linking.openURL("tel:55984280556")
+  }
 
     
 
@@ -144,7 +149,7 @@ export default function Home () {
 
       <FooterHome>
       <LeftSideButtons>
-        <Text style={{color:"#FFE5EC"}} onPress={()=> router.push("/")}>Fazer Ligação (voltar)</Text>
+        <Text style={{color:"#FFE5EC"}} onPress={handleCall}>Fazer Ligação (voltar)</Text>
       </LeftSideButtons>
       <RightSideButtons>
         <Text style={{color:"#FFE5EC"}}>Localização</Text>
