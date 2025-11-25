@@ -1,6 +1,6 @@
 import LogoutImage from "@/assets/logout.svg";
 import { router } from "expo-router";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Linking,
   Modal,
@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import ViewAnimatedButton from "./components/ViewAnimatedButton";
 import { Body } from "./global";
+import { UserLocation, getLocation } from "./services/location";
 import { ButtonSoS, Container, FooterHome, LeftSideButtons, RightSideButtons, TextButtonSoS } from "./styles/home";
 
 export default function Home () {
@@ -19,9 +20,19 @@ export default function Home () {
     const [confirmVisible, setConfirmVisible] = useState(false);
     const [successVisible, setSuccessVisible] = useState(false);
     const [contador, setContador] = useState(15)
+    const [location, setLocation] = useState<UserLocation | null>(null)
     
     const timerRef = useRef<number | null>(null);
     const intervalRef= useRef<number | null>(null)
+
+    useEffect(()=>{
+      (async ()=>{
+        const loc = await getLocation()
+        setLocation(loc)
+      })()
+    },[])
+
+
     
    const openConfirmModal = () => {
     setConfirmVisible(true);
@@ -79,6 +90,17 @@ export default function Home () {
     <Body>
       
       <Container>
+        <View style={{ marginTop: 50 }}>
+      {location ? (
+        <>
+          <Text>Latitude: {location.latitude}</Text>
+          <Text>Longitude: {location.longitude}</Text>
+          <Text>Altitude: {location.altitude ?? "N/A"}</Text>
+        </>
+      ) : (
+        <Text>Obtendo localização...</Text>
+      )}
+    </View>
 
       <View style={{width:"100%",position:"absolute",top:0, height:64,padding: 12, flexDirection:"row-reverse"}}>
       <TouchableOpacity onPress={()=> router.push("/")}>
@@ -148,8 +170,8 @@ export default function Home () {
       </Container>
 
       <FooterHome>
-      <LeftSideButtons>
-        <Text style={{color:"#FFE5EC"}} onPress={handleCall}>Fazer Ligação (voltar)</Text>
+      <LeftSideButtons onPress={handleCall}>
+        <Text style={{color:"#FFE5EC"}}>Fazer Ligação</Text>
       </LeftSideButtons>
       <RightSideButtons>
         <Text style={{color:"#FFE5EC"}}>Localização</Text>

@@ -14,7 +14,10 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Este app usa sua localização para ter uma melhor experiencia"
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -30,7 +33,14 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Precisamos da localização mesmo em segundo plano para melhorar a experiência.",
+          "locationWhenInUsePermission": "Precisamos da localização para mostrar sua posição no mapa."
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true

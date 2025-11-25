@@ -35,7 +35,7 @@ export const FooterHome = styled.View`
     flex-direction: row;
 
 `
-export const RightSideButtons = styled.TouchableHighlight`
+export const RightSideButtons = styled.TouchableOpacity`
 background-color:#FF8FAB;
 width: 120px;
 height:48px;
@@ -45,7 +45,7 @@ padding: 14px;
 border-radius: 24px 0 0 24px;
 
 ` 
-export const LeftSideButtons = styled.TouchableHighlight`
+export const LeftSideButtons = styled.TouchableOpacity`
 background-color:#FF8FAB;
 width: 120px;
 height:48px;

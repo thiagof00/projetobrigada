@@ -1,14 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_14_1971)">
-<path d="M21.486 55.94L48.453 55.94C50.935 55.94 52.947 53.928 52.947 51.446L52.947 12.494C52.947 10.012 50.935 8 48.453 8L21.486 8C19.004 8 16.992 10.012 16.992 12.494L16.992 51.446C16.992 53.928 19.004 55.94 21.486 55.94Z" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M28.976 26.011L34.969 31.97L28.976 37.996" stroke="#426AB2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M34.969 31.97H11" stroke="#426AB2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<svg width="43" height="51" viewBox="0 0 43 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_40_10" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="43" height="51">
+<path d="M42.9272 0H0V50.0625H42.9272V0Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_40_10)">
+<path d="M11.6654 48.1348H36.86C39.1789 48.1348 41.0586 46.1955 41.0586 43.8032V6.25923C41.0586 3.86694 39.1789 1.92767 36.86 1.92767H11.6654C9.3465 1.92767 7.46674 3.86694 7.46674 6.25923V43.8032C7.46674 46.1955 9.3465 48.1348 11.6654 48.1348Z" stroke="#FF8FAB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M18.6631 19.2876L24.2622 25.0312L18.6631 30.8394" stroke="#767676" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24.2622 25.0312H1.86853" stroke="#767676" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
-<defs>
-<clipPath id="clip0_14_1971">
-<rect width="45.947" height="51.94" fill="white" transform="translate(9 6)"/>
-</clipPath>
-</defs>
 </svg>
