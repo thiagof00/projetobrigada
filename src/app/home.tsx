@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import ViewAnimatedButton from "./components/ViewAnimatedButton";
 import { Body } from "./global";
+import { api } from "./services/api";
 import { UserLocation, getLocation } from "./services/location";
 import { ButtonSoS, Container, FooterHome, LeftSideButtons, RightSideButtons, TextButtonSoS } from "./styles/home";
 
@@ -31,6 +32,16 @@ export default function Home () {
         setLocation(loc)
       })()
     },[])
+
+      async function enviarSOS(location: UserLocation | null) {
+          const response = await api.post("/ocorrencias", {
+          usuario_id: 1, // depois vem do login
+          latitude: location?.latitude,
+          longitude: location?.longitude,
+        });
+
+      return response.data;
+  }
 
 
     
@@ -64,15 +75,33 @@ export default function Home () {
     }
   };
 
-    const handleConfirmSOS = (auto = false) => {
+    const handleConfirmSOS = async (auto = false) => {
     clearAllTimers();
     setConfirmVisible(false);
+    
+     if (!location) {
+    alert("Localização indisponível");
+    return;
+  }
+
+
+    try {
+    await enviarSOS(location);
 
     setSuccessVisible(true);
 
     setTimeout(() => {
       setSuccessVisible(false);
     }, 2000);
+
+  } catch (error: any) {
+    console.error(error);
+
+    alert(
+      error.response?.data?.error ||
+      "Erro ao acionar SOS. Tente novamente."
+    );
+  }
   };
 
   const handleCancel = () => {
@@ -90,17 +119,6 @@ export default function Home () {
     <Body>
       
       <Container>
-        <View style={{ marginTop: 50 }}>
-      {location ? (
-        <>
-          <Text>Latitude: {location.latitude}</Text>
-          <Text>Longitude: {location.longitude}</Text>
-          <Text>Altitude: {location.altitude ?? "N/A"}</Text>
-        </>
-      ) : (
-        <Text>Obtendo localização...</Text>
-      )}
-    </View>
 
       <View style={{width:"100%",position:"absolute",top:0, height:64,padding: 12, flexDirection:"row-reverse"}}>
       <TouchableOpacity onPress={()=> router.push("/")}>
